@@ -1,6 +1,6 @@
 angular.module("MirrorFashion")
 .factory('produtoService', ['$http', function($http) {
-    var SERVER_URL = 'http://localhost:3000';
+    var SERVER_URL = 'http://localhost:3000/api';
     return {
         obtemProdutos: function(){
            return $http.get(SERVER_URL + '/carrinho');

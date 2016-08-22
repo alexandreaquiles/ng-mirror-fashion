@@ -28,32 +28,41 @@ var produtos = [
     }
 ];
 
-var api = {}
+function buscaPorId (id) {
+    for(var i = 0; i < produtos.length; i++) {
+        if(produtos[i].id == id) {
+            return i;
+        }
+    }
+    return -1;
+}
 
-api.lista = function(req, res){
+function lista (req, res) {
     res.json(produtos);
 }
 
-api.deleta = function(req, res){
-    for(var i = 0; i < produtos.length; i++) {
-        if(produtos[i].id == req.params.id) {
-            produtos.splice(i, 1);
-            break;
-        }
+function deleta (req, res) {
+    var i = buscaPorId(req.params.id);
+    if(i > 0) {
+        produtos.splice(i, 1);
+        res.sendStatus(204);
+    } else {
+        res.sendStatus(404);
     }
-    res.sendStatus(204);
 }
 
-api.detalha = function(req, res){
-    var produto;
-    for(var i = 0; i < produtos.length; i++) {
-        if(produtos[i].id == req.params.id) {
-            produto = produtos[i];
-            break;
-        }
+function detalha (req, res) {
+    var i = buscaPorId(req.params.id);
+    if(i > 0) {
+        res.json(produtos[i]);
+    } else {
+        res.sendStatus(404);
     }
-    res.json(produto);
 }
 
 
-module.exports = api;
+module.exports = function (app) {
+    app.route('/api/carrinho').get(lista);
+    app.route('/api/carrinho/:id').delete(deleta);
+    app.route('/api/produtos/:id').get(detalha);
+};
