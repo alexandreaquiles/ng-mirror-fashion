@@ -1,8 +1,6 @@
 app.controller("ConsultaCepController", ['$scope', '$http', function ($scope, $http) {
-
     $scope.cep = "";
     $scope.endereco = "";
-    
     $scope.consulta = function(){
         if($scope.cep){
         $http.get("http://cep.correiocontrol.com.br/"+$scope.cep+".json", {timeout: 2000})

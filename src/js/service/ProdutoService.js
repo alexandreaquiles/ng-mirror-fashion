@@ -1,14 +1,15 @@
 angular.module("MirrorFashion")
 .factory('produtoService', ['$http', function($http) {
+    var SERVER_URL = 'http://localhost:3000';
     return {
         obtemProdutos: function(){
-           return $http.get('http://localhost:3000/carrinho');
+           return $http.get(SERVER_URL + '/carrinho');
         },
         deletaProduto: function(id){
-            return $http.delete('http://localhost:3000/carrinho/'+id);
+            return $http.delete(SERVER_URL + '/carrinho/'+id);
         },
         detalhaProduto: function(id){
-            return $http.get('http://localhost:3000/produtos/'+id);
+            return $http.get(SERVER_URL + '/produtos/'+id);
         }
     };
 }]);

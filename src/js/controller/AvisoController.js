@@ -1,10 +1,8 @@
 app.controller('AvisoController', ['$scope', function ($scope){
     var ESCONDER = "Esconder";
     var MOSTRAR = "Mostrar";
-
     $scope.rotuloBotao = ESCONDER;
     $scope.mostraAviso = true;
-    
     $scope.alternarAviso = function(){
         if($scope.mostraAviso){
             $scope.mostraAviso = false;

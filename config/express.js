@@ -1,4 +1,5 @@
-var express = require('express'),
+var path = require('path'),
+    express = require('express'),
     bodyParser = require('body-parser'),
     routes = require('../app/routes'),
     app = express(),

@@ -1,18 +1,15 @@
 <div class="filtro">
-    <input id="busca" type="text" placeholder="Nome, preço ou código" ng-model="busca"/>
+    <input id="busca" type="text" placeholder="Nome, preço ou código" ng-model="busca" />
 </div>
-
 <ul id="carrinho" ng-controller="PesquisaController">
-
     <li id="item{{produto.id}}" class="clearfix" ng-repeat="produto in produtos | filter:busca">
-     <div class="painel-imagem">
-         <img ng-src="../{{produto.imagem}}" />
-     </div>
-      <div class="item-info">
-        <h2>{{produto.nome}}</h2>
-        <p>CÓDIGO: <span>{{produto.codigo}}</span></p>
-        <p>Valor unitário: <span id="item-valor-unit">{{produto.preco | currency}}</span></p>
-      </div>
+        <div class="painel-imagem">
+            <img ng-src="../{{produto.imagem}}" />
+        </div>
+        <div class="item-info">
+            <h2>{{produto.nome}}</h2>
+            <p>CÓDIGO: <span>{{produto.codigo}}</span></p>
+            <p>Valor unitário: <span id="item-valor-unit">{{produto.preco | currency}}</span></p>
+        </div>
     </li>
-
 </ul>

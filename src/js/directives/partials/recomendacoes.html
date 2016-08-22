@@ -1,12 +1,10 @@
-      <div id="recomendacoes" class="container" ng-controller="RecomendacoesController">
-        
-        <h3>Veja o que outras pessoas já compraram na Mirror Fashion</h3>
-        <ul>
-			<li ng-repeat="produto in produtos">
-				<img ng-src="../{{produto.imagem}}"/>
-				<p>{{produto.nome}}</p>
-				<p>{{produto.preco | currency }}</p>
-			</li>
-		</ul>
-
-      </div>
+<div id="recomendacoes" class="container" ng-controller="RecomendacoesController">
+    <h3>Veja o que outras pessoas já compraram na Mirror Fashion</h3>
+    <ul>
+        <li ng-repeat="produto in produtos">
+            <img ng-src="../{{produto.imagem}}" />
+            <p>{{produto.nome}}</p>
+            <p>{{produto.preco | currency }}</p>
+        </li>
+    </ul>
+</div>
