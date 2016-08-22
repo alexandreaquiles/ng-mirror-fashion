@@ -1,0 +1,8 @@
+<div class="container produto" ng-controller="ProdutoController">
+  <img ng-src="../{{produto.imagem}}" width="290" height="370" class="foto">
+
+  <h1>{{produto.nome}}</h1>
+  <h2>por apenas {{produto.preco | currency }}</h2>
+
+   <p class="descricao">{{produto.descricao}}</p>
+</div>

@@ -1,0 +1,24 @@
+<div id="carrinho-container" ng-controller="CarrinhoController">
+    <ul id="carrinho">
+        <li id="item1" class="clearfix" ng-repeat="produto in produtos">
+            <a ng-href="#/produtos/{{produto.id}}">
+               <img alt="Produto {{produto.id}}" ng-src="../{{produto.imagem}}" />
+               <h3>{{produto.nome}}</h3>
+            </a>
+            <div class="item_info">
+                <small>Código: <strong>{{produto.codigo}}</strong></small>
+                <p>Valor unitário: <span id="item1_valor_unit">R$ {{produto.preco}}</span></p>
+          </div>
+          <form action="/" method="post">
+            <p>
+              <label for="item{{produto.id}}_quantidade">Quantidade:</label>
+              <input id="item{{produto.id}}_quantidade" type="text" ng-model="produto.quantidade" ng-change="validaQuantidade(produto)" maxlength="2"/>
+              <a href="" ng-click="excluir(produto)">Excluir</a>
+            </p>
+          </form>
+          <p>Valor total: <span id="item{{produto.id}}_valor_total">{{ produto.quantidade * produto.preco | currency }}</span></p>
+        </li>
+    </ul>
+
+    <p>Total geral: {{total() | currency}}</p>
+</div>
